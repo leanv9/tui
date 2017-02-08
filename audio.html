@@ -1,0 +1,55 @@
+<div class="nav">
+    <div class="left">
+        <a href="javascript:;" url="index.html" class="back link nav-btn">
+            <i class="icon ion-chevron-left"></i>
+        </a>
+    </div>
+    <div class="center">语音合成</div>
+    <div class="right">
+    </div>
+</div>
+<div class="content">
+	<div class="head-pull"></div>
+	<div class="split-range"></div>
+    <div class="page-content inset">
+        <audio src=""></audio>
+        <ul>
+			<li>
+				<div class="item">
+					<!--<div class="item_left"></div>-->
+					<div class="item_center">
+						<div class="item-title label">文字</div>
+						<div class="item-input"><input type="text" name="text" placeholder="要转换的文字"></div>
+						<!--<div class="item_after"></div>-->
+					</div>
+				</div>
+			</li>
+		</ul>
+    </div>	
+    <div class="page-content inset">
+		<div class="row">
+			<div class="col-100">
+				<a href="javascript:;" onclick="play();" class="btn bg_blue">播放</a>
+			</div>
+		</div>
+    </div>
+</div>
+<script type="text/javascript">
+	gc.audio_url = "https://openapi.baidu.com/oauth/2.0/token?grant_type=client_credentials&client_id=2IlrpxIyOaFQkefO6GmhfQRL&client_secret=lQHgSI0SlELlcapKN9icHuXDZ4onY4kq";
+	//hbuilder 跨域获取token
+	document.addEventListener('plusready', function(){
+		var xhr = new plus.net.XMLHttpRequest();
+		xhr.onreadystatechange = function () {
+			if(xhr.readyState == 4 && xhr.status == 200){
+				console.log("audio token");
+				gc.token = JSON.parse(xhr.responseText).access_token;
+			}
+		}
+		xhr.open( "GET", gc.audio_url );
+		xhr.send();
+	}, false );	
+    function play(){
+    	var text = t('[name="text"]').val();
+    	t('audio').textAudio(text, gc.token)[0].play();
+    }
+</script>

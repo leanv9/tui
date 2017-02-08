@@ -1,0 +1,72 @@
+<div class="nav">
+    <div class="left">
+        <a href="javascript:;" url="index.html" class="back link nav-btn">
+            <i class="icon ion-chevron-left"></i>
+        </a>
+    </div>
+    <div class="center">Tui FrameWork</div>
+    <div class="right">
+    </div>
+</div>
+<div class="content">
+    <div class="head-pull"></div>
+    <div class="content-block-title">Full Layout</div>
+    <div class="page-content">
+        <ul>
+            <li>
+                <a href="javascript:;" class="link_item">
+                    <div class="item">
+                        <div class="item_center">
+                            <div class="item-title label">With switch</div>
+                            <div class="item-input">
+                                <select name="" id="province">
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" class="link_item">
+                    <div class="item">
+                        <div class="item_center">
+                            <div class="item-title label">With switch</div>
+                            <div class="item-input">
+                                <select name="" id="city">
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" class="link_item">
+                    <div class="item">
+                        <div class="item_center">
+                            <div class="item-title label">With switch</div>
+                            <div class="item-input">
+                                <select name="" id="region">
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    <div class="page-content-bottom"></div>
+</div>
+
+<script>
+    var data = [
+        {select_id: "#province", value: 2, options: [{id: 1, pid: 0, name: "SS1"}, {id: 2, pid: 0, name: "AA1"}]},
+        {select_id: "#city", value: 2, options: [{id: 1, pid: 1, name: "SS2"}, {id: 2, pid: 2, name: "AA2"}]},
+        {select_id: "#region", value: 2, options: [{id: 1, pid: 1, name: "SS3"}, {id: 2, pid: 2, name: "AA3"}]}
+    ]
+    t.moreSelect(data);
+</script>
+

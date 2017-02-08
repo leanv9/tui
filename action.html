@@ -1,0 +1,122 @@
+<div class="nav">
+	<div class="left">
+		<a href="javascript:;" url="index.html" class="back link nav-btn">
+			<i class="icon ion-chevron-left"></i>
+		</a>
+	</div>
+	<div class="center" style="left: 0px">Tui FrameWork</div>
+	<div class="right"></div>
+</div>
+<div class="content">
+	<div class="head-pull"></div>
+	<div class="content-block-title">style</div>
+	<div class="page-content inset">
+		<div class="row">
+			<div class="cols-30">
+				<a href="javascript:;" onclick="onalert();" class="btn bg_teal alert">alert</a>
+			</div>
+			<div class="cols-30">
+				<a href="javascript:;" onclick="onconfirm();" class="btn bg_blue confirm">confirm</a>
+			</div>
+			<div class="cols-30">
+				<a href="javascript:;" onclick="onprompt();" class="btn bg_cyan prompt">prompt</a>
+			</div>
+		</div>
+	</div>
+	<div class="page-content">
+		<ul>
+			<li>
+				<a href="javascript:;" id="long_alert" class="link_item">
+					<div class="item">
+						<div class="item_center item_icon_right">
+							<div class="item-content">长按alert</div>
+						</div>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;" id="long_confirm" class="link_item">
+					<div class="item">
+						<div class="item_center item_icon_right">
+							<div class="item-content">长按confirm</div>
+						</div>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;" id="long_prompt" class="link_item">
+					<div class="item">
+						<div class="item_center item_icon_right">
+							<div class="item-content">长按prompt</div>
+						</div>
+					</div>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class="page-content-bottom"></div>
+</div>
+<script>
+	function onalert() {
+		//t.alert("TuiFramework", "you want use?",function(){});
+		t.alert("输入有误重新输入", function() {
+			console.log("click");
+		});
+	}
+
+	function onconfirm() {
+		t.confirm("您确定要离开么", function(obj) {
+			t.alert(obj.action);
+		}, "success");
+		return false;
+	}
+
+	function onprompt() {
+		t("#popup3").popup(function(obj) {
+			if(obj.action == "确定") {
+				var _this = this;
+				t("#popup3").attr("style", "display: none;");
+				t.alert("不许关闭",function(){
+					t("#popup3").removeAttr("style");
+				});
+				return false;
+			} else if(obj.action == "") {
+				return true;
+			}
+		});
+		return false;
+	}
+
+	t("#long_alert").touchLong(function() {
+		onalert();
+	});
+
+	t("#long_confirm").touchLong(function() {
+		onconfirm();
+	});
+
+	t("#long_prompt").touchLong(function() {
+		onprompt();
+	});
+</script>
+<div id="popup3" class="popup-by-input">
+	<div class="popup-msg">
+		<div class="popup-title-hr">
+			<a href="javascript:;"><i class="ion-close"></i></a>
+			<span style="margin-left: 10px;">
+				请输入账号密码
+			</span>
+		</div>
+		<div class="popup-content">
+			<div class="input-field">
+				<input type="text" placeholder="username">
+			</div>
+			<div class="input-field">
+				<input type="password" placeholder="password">
+			</div>
+		</div>
+	</div>
+	<div class="popup-btn">
+		<a href="javascript:;" class="btn btn-sm bg_blue">确定</a>
+	</div>
+</div>

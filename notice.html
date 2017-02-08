@@ -1,0 +1,46 @@
+<div class="nav">
+    <div class="left">
+        <a href="javascript:;" url="index.html" class="back link nav-btn">
+            <i class="icon ion-chevron-left"></i>
+        </a>
+    </div>
+    <div class="center">Tui FrameWork</div>
+    <div class="right">
+    </div>
+</div>
+<div class="content">
+    <div class="head-pull"></div>
+    <div class="content-block-title">Full Layout</div>
+    <div class="page-content inset">
+        <div class="row">
+            <div class="cols-30">
+                <a id="notice" href="" class="btn bg_teal">notice</a>
+            </div>
+            <div class="cols-30">
+                <a id="noticeShow" href="" class="btn bg_blue">notice show</a>
+            </div>
+            <div class="cols-30">
+                <a id="noticeHide" href="" class="btn bg_cyan">notice hide</a>
+            </div>
+        </div>
+    </div>
+    <div class="page-content-bottom"></div>
+</div>
+<script>
+    t("#notice").click(function () {
+        t.notice("您有新的订单，请查看！", function () {
+
+        });
+        return false;
+    });
+    var app_notice = null;
+    t("#noticeShow").click(function () {
+        app_notice = t.appNoticeOpen("您有新的订单，请注意查看！！！");
+        return false;
+    });
+    t("#noticeHide").click(function () {
+        t.appNoticeClose(app_notice);
+        return false;
+    });
+
+</script>

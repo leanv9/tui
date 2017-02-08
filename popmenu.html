@@ -1,0 +1,151 @@
+<div class="nav">
+	<div class="left">
+		<a href="javascript:;" url="index.html" class="back link nav-btn">
+			<i class="icon ion-chevron-left"></i>
+		</a>
+	</div>
+	<div class="center" style="left: 10px">Tui FrameWork</div>
+	<div class="right">
+		<a href="javascript:;" id="caidan" class="link nav-btn" style="font-size: 14px;">
+			菜单
+		</a>
+	</div>
+</div>
+<div id="pop1" class="menuPop" style="right: 15px; top: 44px;">
+	<ul>
+		<li>
+			<a class="blue pop_menu_btn" href="javascript:;">按钮1</a>
+		</li>
+		<li>
+			<a class="blue pop_menu_btn" href="javascript:;">按钮2</a>
+		</li>
+		<li>
+			<a class="blue pop_menu_btn" href="javascript:;">按钮3</a>
+		</li>
+	</ul>
+</div>
+<div id="pop2" class="menuPop" style="left: 30%;top: 100px;">
+	<ul>
+		<li>
+			<a class="blue pop_menu_btn" href="javascript:;">按钮1</a>
+		</li>
+		<li>
+			<a class="blue pop_menu_btn" href="javascript:;">按钮2</a>
+		</li>
+		<li>
+			<a class="blue pop_menu_btn" href="javascript:;">按钮3</a>
+		</li>
+	</ul>
+</div>
+<div id="pop3" class="menuPop" style="left: 60%;top: 100px;">
+	<ul>
+		<li>
+			<a class="blue pop_menu_btn" href="javascript:;">按钮1</a>
+		</li>
+		<li>
+			<a class="blue pop_menu_btn" href="javascript:;">按钮2</a>
+		</li>
+		<li>
+			<a class="blue pop_menu_btn" href="javascript:;">按钮3</a>
+		</li>
+	</ul>
+</div>
+<script>
+	t("#caidan").click(function(){
+		t("#pop1").popMenu(function(a){
+			console.log("fdsfd");
+			t.alert("按钮："+a.action+"被点击");
+		});
+	});
+	t("#caidan1").click(function(){
+		t("#pop2").popMenu(function(a){
+			console.log("fdsfd");
+			t.alert("按钮："+a.action+"被点击");
+		});
+	});
+	t("#caidan2").click(function(){
+		t("#pop3").popMenu(function(a){
+			console.log("fdsfd");
+			t.alert("按钮："+a.action+"被点击");
+		});
+	});
+</script>
+<div class="content">
+	<div class="head-pull"></div>
+	<div class="content-block-title">style</div>
+	<div class="page-content inset">
+		<div class="row">
+			<div class="cols-50">
+				<a href="javascript:;" id="caidan1" class="btn bg_teal alert">菜单</a>
+			</div>
+			<div class="cols-50">
+				<a href="javascript:;" id="caidan2" class="btn bg_blue confirm">菜单</a>
+			</div>
+		</div>
+	</div>
+	<div class="page-content-bottom"></div>
+</div>
+<script>
+	function onalert() {
+		//t.alert("TuiFramework", "you want use?",function(){});
+		t.alert("输入有误重新输入", function() {
+			console.log("click");
+		});
+	}
+
+	function onconfirm() {
+		t.confirm("您确定要离开么", function(obj) {
+			t.alert(obj.action);
+		}, "success");
+		return false;
+	}
+
+	function onprompt() {
+		t("#popup3").popup(function(obj) {
+			if(obj.action == "确定") {
+				var _this = this;
+				t("#popup3").attr("style", "display: none;");
+				t.alert("不许关闭",function(){
+					t("#popup3").removeAttr("style");
+				});
+				return false;
+			} else if(obj.action == "") {
+				return true;
+			}
+		});
+		return false;
+	}
+
+	t("#long_alert").touchLong(function() {
+		onalert();
+	});
+
+	t("#long_confirm").touchLong(function() {
+		onconfirm();
+	});
+
+	t("#long_prompt").touchLong(function() {
+		onprompt();
+	});
+</script>
+<div id="popup3" class="popup-by-input">
+	<div class="popup-msg">
+		<div class="popup-title-hr">
+			<a href="javascript:;"><i class="ion-close"></i></a>
+			<span style="margin-left: 10px;">
+				请输入账号密码
+			</span>
+		</div>
+		<div class="popup-content">
+			<div class="input-field">
+				<input type="text" placeholder="username">
+			</div>
+			<div class="input-field">
+				<input type="password" placeholder="password">
+			</div>
+		</div>
+	</div>
+	<div class="popup-btn">
+		<a href="javascript:;" class="btn btn-sm bg_blue">确定</a>
+	</div>
+</div>

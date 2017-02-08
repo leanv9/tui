@@ -1,0 +1,100 @@
+<div class="nav">
+    <div class="left">
+        <a href="javascript:;" url="index.html" class="back link nav-btn">
+            <i class="icon ion-chevron-left"></i>
+        </a>
+    </div>
+    <div class="center">Tui FrameWork</div>
+    <div class="right">
+    </div>
+</div>
+<div class="content">
+    <div class="page-content">
+        <div id="baidumap" style="height: 500px;"></div>
+    </div>
+</div>
+<!--<div class="map-cover">
+    <img src="http://img0.imgtn.bdimg.com/it/u=703978153,3397300865&fm=11&gp=0.jpg">
+    <div class="map-cover-text">
+        fdsafdsa
+    </div>
+</div>-->
+<script type="application/javascript">
+    /**
+     * 动态加载百度地图
+     */
+    /*function loadBaidumap(AK) {
+        var cssNode = document.createElement("style");
+        cssNode.type = "text/css";
+        cssNode.id = "baidumapcss";
+        cssNode.innerText = "#baidumap{width:" + window.screen.width + "px;height:" + window.screen.height + "px;}";
+        document.head.appendChild(cssNode);
+        var script = document.createElement("script");
+        script.id = "baidumapjs";
+        script.type = "text/javascript";
+        script.src = "http://api.map.baidu.com/api?v=2.0&ak=" + AK + "&callback=initmap";
+        document.body.appendChild(script);
+    }*/
+    var map = null;
+    /**
+     * 百度地图回调地址
+     */
+    function initmap() {
+        map = new BMap.Map("baidumap");            // 创建Map实例
+        var point = new BMap.Point(116.404, 39.915); // 创建点坐标
+        map.centerAndZoom(point, 15);
+        map.enableScrollWheelZoom();                 //启用滚轮放大缩小
+        // 复杂的自定义覆盖物
+        function ComplexCustomOverlay(point, div) {
+            this._point = point;
+            this._div = div;
+        }
+
+        ComplexCustomOverlay.prototype = new BMap.Overlay();
+        ComplexCustomOverlay.prototype.initialize = function (_map) {
+            this._map = _map;
+            t(this._map.getPanes().labelPane).append($(this._div));
+            return this._div;
+        }
+        ComplexCustomOverlay.prototype.draw = function () {
+            var pixel = this._map.pointToOverlayPixel(this._point);
+            t(this._div).attr("style", 'left:' + (pixel.x - 70) + 'px;top:' + (pixel.y - 60) + 'px;');
+        }
+
+        //图
+        var div = t('<div class="map-cover" href="action.html"><img src="http://img0.imgtn.bdimg.com/it/u=703978153,3397300865&fm=11&gp=0.jpg"><div class="map-cover-text">fdsafdsa</div></div>');
+        //div点击事件如果是手机触摸，可以换成touchAction
+        div.click(function () {
+            t.toNextPage($(this).attr("href"));
+        });
+        var myCompOverlay = new ComplexCustomOverlay(new BMap.Point(116.407845, 39.914101), div[0]);
+        map.addOverlay(myCompOverlay);
+
+        //小图标
+        var div_spot = t('<div class="map-spot"><i class="ion-android-locate blue" style="font-size:24px"></i><span>这里有人哦</span></div>');
+        var myCompOverlay_spot = new ComplexCustomOverlay(new BMap.Point(116.406645, 39.920101), div_spot[0]);
+        map.addOverlay(myCompOverlay_spot);
+
+        /**
+         * 地图点击事件
+         */
+        map.addEventListener("click", function (e) {
+            console.log(e.point.lng + ", " + e.point.lat);
+        });
+    }
+	initmap();
+
+    //loadBaidumap("AFbcf7cf9df3cb04d9518915083089d8");
+    /**
+     * 清理地图自动加载文件。
+     */
+    t.onNextPageBefore = t.onPrePageBefore = function () {
+        map.clearOverlays();
+        t("#baidumap").removeAttr("style").html('');
+        t("#baidumapcss").remove();
+        t("script[src*='map.bdimg.com']").remove();
+        t("style").eq(-1).remove();
+        t("script[src^='http://api.map.baidu.com']").remove();
+    }
+
+</script>

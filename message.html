@@ -1,0 +1,84 @@
+<div class="nav">
+    <div class="left">
+        <a href="javascript:;" url="index.html" class="back link nav-btn">
+            <i class="icon ion-chevron-left"></i>
+        </a>
+    </div>
+    <div class="center">Tui FrameWork</div>
+    <div class="right">
+    </div>
+</div>
+<div class="content">
+    <div class="head-pull"></div>
+    <div class="message">
+        <div class="received">
+            <img class="msg-image" src="imgs/t1.jpeg"／>
+            <div class="msg-content">
+	            <div class="msg-name">fdffdfs</div>
+	            <div class="msg-text">fdsafsadsafdsa</div>
+            </div>
+        </div>
+        <div class="message-date">2016-1-12</div>
+        <div class="send">
+            <div class="msg-content">
+	            <div class="msg-name">fdffdfs</div>
+	            <div class="msg-text">嘟嘟嘟嘟嘟嘟</div>
+            </div>
+            <img class="msg-image" src="imgs/t1.jpeg"／>
+        </div>
+        <div class="send">
+            <div class="msg-content">
+	            <div class="msg-name">fdffdfs</div>
+	            <div class="msg-text">ni shi zhan xian ne me ? wei shen me?</div>
+            </div>
+            <img class="msg-image" src="imgs/t1.jpeg"／>
+        </div>
+        <div class="received">
+            <img class="msg-image" src="imgs/t1.jpeg"／>
+            <div class="msg-content">
+	            <div class="msg-name">fdffdfs</div>
+	            <div class="msg-text">fdsafsadsafdsa</div>
+            </div>
+        </div>
+        <div class="send">
+            <div class="msg-content">
+	            <div class="msg-name">斯达哈哈</div>
+	            <div class="msg-text">i belonges to you</div>
+            </div>
+            <img class="msg-image" src="imgs/t1.jpeg"／>
+        </div>
+        <div class="send">
+            <div class="msg-content">
+	            <div class="msg-name">掌扇</div>
+	            <div class="msg-text">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈啊</div>
+            </div>
+            <img class="msg-image" src="imgs/t1.jpeg"／>
+        </div>
+    </div>
+    <div class="page-content-bottom"></div>
+</div>
+<div class="toolbar">
+    <a href="" class="msg-btn middle"><i class="icon ion-ios-camera"></i></a>
+    <textarea class="send_content" name="" placeholder="Message"></textarea>
+    <a href="javascript:;" class="msg-btn send-btn middle">发送</a>
+</div>
+<script>
+	var data = {
+		name: "wode", image: "imgs/t1.jpeg",
+		contents: [{
+            send: {
+                message: "接收数据，发的范德萨微软为其广泛的就送给"
+            },
+            receive: {
+                name: "wode",
+                message: "发送数据，发的范德萨微软为其广泛的就送给",
+                image: "imgs/t1.jpeg"
+            },
+            date: '2016-02-13'
+        }]
+	}
+    var mes = new t.message(data);
+    mes.onSend = function (content) {
+        //alert(content);
+    }
+</script>

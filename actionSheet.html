@@ -1,0 +1,151 @@
+<div class="nav">
+    <div class="left">
+        <a href="javascript:;" url="index.html" class="back link nav-btn">
+            <i class="icon ion-chevron-left"></i>
+        </a>
+    </div>
+    <div class="center">Tui FrameWork</div>
+    <div class="right">
+    </div>
+</div>
+<div class="content">
+    <div class="head-pull"></div>
+    <div class="content-block-title">Full Layout</div>
+    <div class="page-content inset">
+        <div class="row">
+            <div class="cols-30">
+                <a id="action1" href="javascript:;" class="btn bg_teal">action1</a>
+            </div>
+            <div class="cols-30">
+                <a id="action2" href="javascript:;" class="btn bg_blue">action2</a>
+            </div>
+            <div class="cols-30">
+                <a id="action3" href="javascript:;" class="btn bg_cyan">action3</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-100">
+                <a id="action4" href="javascript:;" class="btn bg_cyan">透明</a>
+            </div>
+        </div>
+    </div>
+    <div class="page-content-bottom"></div>
+</div>
+<script>
+    t("#action1").click(function () {
+        t("#action-modal1").popupAction();
+        return false;
+    });
+    t("#action2").click(function () {
+        t("#action-modal2").popupAction();
+        return false;
+    });
+    t("#action3").click(function () {
+        t("#action-modal3").popupAction();
+        return false;
+    });
+    t("#action4").click(function () {
+        t("#action-4").popupAction();
+        return false;
+    });
+</script>
+<div id="action-4" class="popup-action popup-action-op">
+    <div class="action-btn middle modal-btn">alert</div>
+    <div class="action-btn middle modal-btn">cancel</div>
+    <div class="action-btn middle modal-btn">config</div>
+</div>
+<div id="action-modal1" class="popup-action">
+    <div class="action-title">
+        <div class="center" style="width: 100%">tui framework</div>
+    </div>
+    <div class="action-btn middle modal-btn">alert</div>
+    <div class="action-btn middle modal-btn">cancel</div>
+    <div class="action-btn middle modal-btn">config</div>
+</div>
+<div id="action-modal2" class="popup-action">
+    <div class="action-title">
+        <div class="blue title-btn action-btn middle">取消</div>
+        <div class="center">tui framework</div>
+        <div class="title-btn blue action-btn middle">完成</div>
+    </div>
+    <div class="action-content">
+        <p>
+            fdsajfdsafkjlsdalfkslafjdfdjaslkfd;safdlasjfdsafdsalkfdsafj;dsafjdls;afkdslafdasklf;dsjafjklsafjldsa;jfkldsa;fjdksla;fds123123</p>
+        <p>
+            fdsajfdsafkjlsdalfkslafjd
+            fdjaslkfd;safdlasjfdsa
+            fdsalkfdsafj;dsafjdls;afkdsla
+            fdasklf;dsjafjklsafjldsa;
+            jfkldsa;fjdksla;fds
+        </p>
+        <p>
+            fdsajfdsafkjlsdalfkslafjd
+            fdjaslkfd;safdlasjfdsa
+            fdsalkfdsafj;dsafjdls;afkdsla
+            fdasklf;dsjafjklsafjldsa;
+            jfkldsa;fjdksla;fds
+        </p>
+    </div>
+</div>
+<div id="action-modal3" class="popup-action">
+    <div class="action-title">
+        <div class="blue title-btn action-btn middle">取消</div>
+        <div class="center">tui framework</div>
+        <div class="title-btn blue action-btn middle">完成</div>
+    </div>
+    <div class="action-select">
+        <div class="select-item">
+            <ul id="u1">
+                <li>fdsafsa</li>
+                <li>fdsafsa</li>
+                <li>fdsafsa</li>
+                <li>fdsafsa</li>
+                <li>fdsafsa</li>
+                <li>fdsafsa</li>
+                <li>fdsafsa</li>
+                <li>fdsafsa</li>
+                <li>fdsafsa</li>
+                <li>fdsafsa</li>
+            </ul>
+        </div>
+        <div class="select-item">
+            <ul id="u2">
+                <li>fdsafsa</li>
+                <li>fdsafsa</li>
+                <li>fdsafsa</li>
+                <li>fdsafsa</li>
+                <li>fdsafsa</li>
+                <li>fdsafsa</li>
+                <li>fdsafsa</li>
+                <li>fdsafsa</li>
+                <li>fdsafsa</li>
+                <li>fdsafsa</li>
+            </ul>
+        </div>
+        <div class="select-item">
+            <ul id="u3">
+                <li>fdsafsa</li>
+                <li>fdsafsa</li>
+                <li>fdsafsa</li>
+                <li>fdsafsa</li>
+                <li>fdsafsa</li>
+                <li>fdsafsa</li>
+                <li>fdsafsa</li>
+                <li>fdsafsa</li>
+                <li>fdsafsa</li>
+                <li>fdsafsa</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+    //    var curr_num = 1, num = t(".select-item li").length;
+    //    t("#u1").touchAction("move", null, function (e) {
+    //        t(this).attr("style", "transform: translate3d(0px, " + (-e.distanceY) + "px, 0);");
+    //    }, function (e) {
+    //        var dur_num = Math.ceil(Math.abs(e.distanceY)/20);
+    //        curr_num += dur_num;
+    //        t(this).attr("style", "transform: translate3d(0px, " + (-e.distanceY) + "px, 0);transition: 1300ms;");
+    //    });
+
+</script>
